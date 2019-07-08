@@ -5,10 +5,14 @@
     "author": "liuwu",
     "private": true,
     "scripts": {
-        "start": ""
+        "start": "webpack --config builder/webpack.config.js"
     },
     "engines": {
         "node": ">= 8.0.0",
         "npm": ">= 5.0.0"
+    },
+    "devDependencies": {
+        "webpack": "^4.35.2",
+        "webpack-cli": "^3.3.5"
     }
 }
