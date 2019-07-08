@@ -5,7 +5,7 @@
     "author": "liuwu",
     "private": true,
     "scripts": {
-        "start": "webpack --config builder/webpack.config.js"
+        "build": "webpack --config builder/webpack.config.js"
     },
     "engines": {
         "node": ">= 8.0.0",
