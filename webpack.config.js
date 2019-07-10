@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        heatmap: './src/heatmap.js'
+        index: './src/app.js'
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, './dist')
     },
     devtool: 'inline-source-map',
@@ -31,7 +31,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'test2 page',
+            title: 'test page',
             template: './index.html'
         }),
     ]
