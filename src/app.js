@@ -1,4 +1,5 @@
 import Heatmap from './heatmap';
 
-const heatmap = new Heatmap();
-heatmap.listen();
+new Heatmap({
+    workerSrc: './wk.js',
+});

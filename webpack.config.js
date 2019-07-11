@@ -1,14 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/app.js'
+        index: './src/app.js',
+        wk: './src/wk.js'
     },
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, './dist')
     },
     devtool: 'inline-source-map',
@@ -32,7 +34,18 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'test page',
-            template: './index.html'
+            filename: 'index.html',
+            template: './index.html',
+            hash: true,
+            inject: true,
+            chunks: ['index']
         }),
+        // new CopyWebpackPlugin([
+        //     {
+        //       from: path.resolve(__dirname, './src'),
+        //       to: './dist',
+        //       test: /wk.js$/,
+        //     }
+        // ]),
     ]
 }
