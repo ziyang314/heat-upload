@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -40,12 +39,5 @@ module.exports = {
             inject: true,
             chunks: ['index']
         }),
-        // new CopyWebpackPlugin([
-        //     {
-        //       from: path.resolve(__dirname, './src'),
-        //       to: './dist',
-        //       test: /wk.js$/,
-        //     }
-        // ]),
     ]
 }

@@ -36,6 +36,13 @@ class Heatmap {
         this.wk.onmessageerror = error => console.error(error);
 
         this.listen();
+
+        this.wk.onmessage = (msgE) => {
+            // todo
+            console.info(msgE);
+        };
+
+        this.uploadData();
     }
 
     listen() {
@@ -48,6 +55,19 @@ class Heatmap {
             const path = window.location.pathname + encodeURIComponent(window.location.hash.substring(0, 200));
             const { host } = window.location;
             const { width, height, scrollHeight } = resolution;
+
+            // 找出发生在弹框上的点击
+            const ePath = e.path || (e.composedPath && e.composedPath());
+            const parents = ePath.slice(0, ePath.findIndex(value => value.tagName.toLowerCase() === 'body'));
+            let isDialog = false;
+            if (parents.length) {
+                parents.forEach((it) => {
+                    if (getComputedStyle(it).getPropertyValue('position') === 'fixed') {
+                        isDialog = true;
+                    }
+                });
+            }
+
             this.wk.postMessage({
                 type: 'addData',
                 data: {
@@ -58,13 +78,14 @@ class Heatmap {
                     scrollHeight,
                     path,
                     host,
+                    isDialog,
                 },
             });
         });
-        this.wk.onmessage = (msgE) => {
-            // todo
-            console.info(msgE);
-        };
+    }
+
+    uploadData() {
+        this.wk.postMessage({ type: 'startUpload', data: this.options });
     }
 }
 
