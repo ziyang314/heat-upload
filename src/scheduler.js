@@ -1,7 +1,6 @@
 const defaultOptions = {
     interval: 10000, // 上报间隔
     reportUrl: '', // 上报url
-    fn: null, // 执行程序
 };
 
 export default class Scheduler {
@@ -13,7 +12,7 @@ export default class Scheduler {
         this.options = { ...defaultOptions, ...options };
     }
 
-    interval() {
-        this.timed = setInterval(this.options.fn, this.options.interval);
+    start(fn) {
+        this.timer = setInterval(fn, this.options.interval);
     }
 }

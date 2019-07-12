@@ -42,7 +42,7 @@ class Heatmap {
             console.info(msgE);
         };
 
-        this.uploadData();
+        this.startUpload();
     }
 
     listen() {
@@ -84,7 +84,7 @@ class Heatmap {
         });
     }
 
-    uploadData() {
+    startUpload() {
         this.wk.postMessage({ type: 'startUpload', data: this.options });
     }
 }
