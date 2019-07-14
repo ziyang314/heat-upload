@@ -39,7 +39,10 @@ class Heatmap {
 
         this.wk.onmessage = (msgE) => {
             // todo
-            console.info(msgE);
+            const { type, data } = msgE.data;
+            if (type === 'uploadData') {
+                this.uploadData(data);
+            }
         };
 
         this.startUpload();
@@ -82,6 +85,12 @@ class Heatmap {
                 },
             });
         });
+    }
+
+    uploadData(data) {
+        const params = JSON.stringify(data);
+        const img = new Image();
+        img.src = `${this.options.uploadUrl}${params}}`;
     }
 
     startUpload() {

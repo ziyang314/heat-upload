@@ -3,4 +3,5 @@ export default {
     uploadUrl: '',
     workerSrc: 'wk.js',
     dbName: 'heatmap',
+    uploadCount: 5,
 };

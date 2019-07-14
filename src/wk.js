@@ -15,8 +15,13 @@ onmessage = (e) => {
         break;
     case 'startUpload':
         sched = new Scheduler(data);
-        sched.start(() => {
-            console.info('ok');
+        sched.start(async () => {
+            const objs = await db.heat.some(data.uploadCount);
+            if (objs.length === 0) return;
+            postMessage({ type: 'uploadData', data: objs });
+            objs.forEach((it) => {
+                db.heat.delete(it.id);
+            });
         });
         break;
     default:
