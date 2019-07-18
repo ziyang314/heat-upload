@@ -1,7 +1,23 @@
 import DataBase from './database';
-import Scheduler from './scheduler';
 
 let db;
+
+class Scheduler {
+    constructor(options) {
+        this.timer = null;
+        this.interval = options.interval;
+    }
+
+    start(fn) {
+        if (this.timer) return;
+        this.timer = setInterval(fn, this.interval);
+    }
+
+    stop() {
+        clearInterval(this.timer);
+        this.timer = null;
+    }
+}
 
 onmessage = (e) => {
     const { type, data } = e.data;

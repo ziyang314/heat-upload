@@ -3,25 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: {
-        index: './src/app.js',
-        wk: './src/wk.js'
+        index: path.resolve(__dirname, '../src/app.js'),
+        wk: path.resolve(__dirname, '../src/wk.js')
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, './dist')
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './dist'
+        path: path.resolve(__dirname, '../dist')
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 enforce: 'pre',
-                include: [path.resolve(__dirname, 'src')],
+                include: [path.resolve(__dirname, '../src')],
                 loader: 'eslint-loader',
                 options: {
                     formatter: require('eslint-config-airbnb-base')

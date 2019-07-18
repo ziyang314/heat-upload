@@ -88,9 +88,9 @@ class Heatmap {
     }
 
     uploadData(data) {
-        const params = JSON.stringify(data);
+        const params = JSON.stringify({ hitdata: data });
         const img = new Image();
-        img.src = `${this.options.uploadUrl}${params}}`;
+        img.src = `${this.options.uploadUrl}${params}`;
     }
 
     startUpload() {
