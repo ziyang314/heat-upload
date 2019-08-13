@@ -1,1 +1,3 @@
-module.exports = require('./src/HeatUpload');
+import HeatUpload from './src/HeatUpload';
+
+export default HeatUpload;
