@@ -1,9 +1,9 @@
 {
-    "name": "heat-map",
-    "version": "0.0.1",
+    "name": "@tencent/heat-upload",
+    "version": "0.0.3",
     "description": "点击上报",
     "author": "clauseliu",
-    "private": true,
+    "private": false,
     "scripts": {
         "build": "webpack --config builder/webpack.prod.js",
         "dev": "webpack-dev-server --config builder/webpack.dev.js"
