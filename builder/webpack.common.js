@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        index: path.resolve(__dirname, '../src/app.js'),
+        HeatUpload: path.resolve(__dirname, '../src/heatUpload.js'),
         wk: path.resolve(__dirname, '../src/wk.js')
     },
     output: {
@@ -32,7 +32,7 @@ module.exports = {
             template: './index.html',
             hash: true,
             inject: true,
-            chunks: ['index']
+            chunks: ['heatmap']
         }),
     ]
 }

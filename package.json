@@ -1,8 +1,8 @@
 {
-    "name": "code_test",
+    "name": "heat-map",
     "version": "0.0.1",
-    "description": "做代码练习的一个测试项目",
-    "author": "liuwu",
+    "description": "点击上报",
+    "author": "clauseliu",
     "private": true,
     "scripts": {
         "build": "webpack --config builder/webpack.prod.js",
